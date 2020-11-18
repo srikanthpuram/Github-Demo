@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="commitsListViewModel" type="com.srikanthpuram.githubapidemo.presentation.viewmodel.CommitsListViewModel" />
+    </data>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/itemCommitViewer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="@{safeUnbox(commitsListViewModel.isWaiting) || commitsListViewModel.errorMessage != null ? View.GONE : View.VISIBLE}"
+                android:layout_margin="@dimen/small_margin"/>
+
+        <ProgressBar
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:visibility="@{safeUnbox(commitsListViewModel.isWaiting) ? View.VISIBLE : View.GONE}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@{commitsListViewModel.errorMessage}"
+                android:visibility="@{commitsListViewModel.errorMessage == null ? View.GONE : View.VISIBLE}"/>
+
+    </LinearLayout>
+</layout>
