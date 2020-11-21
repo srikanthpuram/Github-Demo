@@ -65,11 +65,6 @@ class CommitsListFragment : Fragment() {
                 }
             })
 
-        Transformations.switchMap(commitsListViewModel.dataSource) { dataSource -> dataSource.totalCount }
-            .observe(this, Observer {totalCount ->
-                totalCount?.let { commitsListViewModel.totalCount.set(it)}
-            })
-
         commitsListViewModel.commitsLiveData.observe(this, Observer {
             commitsListAdapter.submitList(it)
         })

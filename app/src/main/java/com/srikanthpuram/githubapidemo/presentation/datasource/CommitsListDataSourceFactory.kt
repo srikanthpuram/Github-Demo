@@ -5,7 +5,7 @@ import androidx.paging.DataSource
 import com.srikanthpuram.githubapidemo.data.remote.api.models.GithubCommits
 import com.srikanthpuram.githubapidemo.domain.api.GithubApiClient
 
-class CommitsListDataSourceFactory(private val githubApiClient: GithubApiClient): DataSource.Factory<Int, GithubCommits>() {
+open class CommitsListDataSourceFactory(private val githubApiClient: GithubApiClient): DataSource.Factory<Int, GithubCommits>() {
 
     val liveData: MutableLiveData<CommitsListDataSource> = MutableLiveData()
 

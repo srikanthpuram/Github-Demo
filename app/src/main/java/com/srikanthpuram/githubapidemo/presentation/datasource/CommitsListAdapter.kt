@@ -17,11 +17,10 @@ class CommitsListAdapter(): PagedListAdapter<GithubCommits, CommitsListAdapter.C
     lateinit var context: Context
 
     inner class CommitsListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val commitItem: RelativeLayout = itemView.findViewById(R.id.list_item_commit)
-        val author: TextView = itemView.findViewById(R.id.author)
-        val timeStamp: TextView = itemView.findViewById(R.id.timestamp)
-        val commiteMessage: TextView = itemView.findViewById(R.id.commitmessage)
-        val commitHash: TextView = itemView.findViewById(R.id.commithash)
+        val author: TextView = itemView.findViewById(R.id.author_text)
+        val timeStamp: TextView = itemView.findViewById(R.id.timestamp_text)
+        val commiteMessage: TextView = itemView.findViewById(R.id.commit_message_text)
+        val commitHash: TextView = itemView.findViewById(R.id.commit_hash_text)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommitsListAdapter.CommitsListViewHolder {

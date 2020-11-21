@@ -7,6 +7,6 @@ interface GithubApiClient {
 
     suspend fun getUsersList(page: Int, pageSize: Int): Resource<GetGithubUserResponseModel>
 
-    suspend fun getOwnerCommits(owner: String, repo: String): Resource<GetGithubCommitsResponseModel>
+    suspend fun getOwnerCommits(owner: String, repo: String, page: Int, pageSize: Int): Resource<List<GithubCommits>>
 
 }
