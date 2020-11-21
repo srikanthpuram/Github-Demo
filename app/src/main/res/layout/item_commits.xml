@@ -1,44 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/list_item_commit"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/author"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_alignParentStart="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Author"/>
 
     <TextView
-        android:id="@+id/timestamp"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/author_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="2016-05-19T16:52:59Z"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="5dp"
+        android:text="Author: "
+        android:textStyle="bold"
+        tools:text="Author:" />
 
     <TextView
-        android:id="@+id/commitmessage"
-        android:layout_marginTop="5dp"
+        android:id="@+id/author_text"
         android:layout_marginStart="5dp"
-        android:layout_below="@id/author"
-        android:layout_alignParentStart="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="2016-05-19T16:52:59Z"/>
+        app:layout_constraintStart_toEndOf="@id/author_label"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Author Name" />
 
     <TextView
-        android:id="@+id/commithash"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_below="@id/author"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/timestamp_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="1538dd1f149d970917958a2345c5b2e5d157875c"/>
-</RelativeLayout>
+        android:layout_below="@id/author_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/author_label"
+        android:layout_marginStart="5dp"
+        android:text="Time: "
+        android:textStyle="bold"
+        tools:text="Time: " />
+
+    <TextView
+        android:id="@+id/timestamp_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toEndOf="@id/timestamp_label"
+        app:layout_constraintTop_toBottomOf="@id/author_text"
+        tools:text="2016-05-19T16:52:59Z" />
+
+    <TextView
+        android:id="@+id/commit_hash_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timestamp_label"
+        android:layout_marginStart="5dp"
+        android:text="Commit Hash: "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/commit_hash_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/commit_hash_label"
+        app:layout_constraintTop_toBottomOf="@id/timestamp_label"
+        android:layout_toEndOf="@id/commit_hash_label"
+        tools:text="1538dd1f149d970917958a2345c5b2e5d157875c" />
+
+    <TextView
+        android:id="@+id/commit_message_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/commit_hash_text"
+        android:layout_marginStart="5dp"
+        android:text="Commit Message: "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/commit_message_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/commit_message_label"
+        tools:text="1538dd1f149d970917958a2345c5b2e5d157875c" />
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/commit_message_text"
+        android:layout_marginTop="3dp"
+        android:background="@android:color/darker_gray" />
+</androidx.constraintlayout.widget.ConstraintLayout>

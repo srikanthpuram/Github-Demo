@@ -7,6 +7,7 @@ import com.srikanthpuram.githubapidemo.BuildConfig
 import com.srikanthpuram.githubapidemo.data.remote.api.GithubApi
 import com.srikanthpuram.githubapidemo.domain.api.GithubApiClient
 import com.srikanthpuram.githubapidemo.domain.api.GithubApiClientImpl
+import com.srikanthpuram.githubapidemo.util.Constants.Companion.BASE_URL
 import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -34,7 +35,7 @@ fun provideGithubApi(retrofit: Retrofit): GithubApi = retrofit.create(GithubApi:
 
 fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
     return Retrofit.Builder()
-        .baseUrl("https://api.github.com/")
+        .baseUrl(BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()

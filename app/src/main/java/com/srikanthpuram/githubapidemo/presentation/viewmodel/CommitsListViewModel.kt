@@ -9,6 +9,7 @@ import androidx.paging.PagedList
 import com.srikanthpuram.githubapidemo.data.remote.api.models.GithubCommits
 import com.srikanthpuram.githubapidemo.presentation.datasource.CommitsListDataSource
 import com.srikanthpuram.githubapidemo.presentation.datasource.CommitsListDataSourceFactory
+import com.srikanthpuram.githubapidemo.util.Constants.Companion.PAGE_SIZE
 import java.util.concurrent.Executors
 
 class CommitsListViewModel (private val commitsListDataSourceFactory: CommitsListDataSourceFactory) : ViewModel() {
@@ -29,8 +30,8 @@ class CommitsListViewModel (private val commitsListDataSourceFactory: CommitsLis
     private fun initUsersListFactory() {
         val config = PagedList.Config.Builder()
             .setEnablePlaceholders(true)
-            .setInitialLoadSizeHint(CommitsListDataSource.PAGE_SIZE)
-            .setPageSize(CommitsListDataSource.PAGE_SIZE)
+            .setInitialLoadSizeHint(PAGE_SIZE)
+            .setPageSize(PAGE_SIZE)
             .setPrefetchDistance(3)
             .build()
 

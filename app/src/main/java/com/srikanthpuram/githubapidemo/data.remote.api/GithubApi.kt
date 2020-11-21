@@ -15,6 +15,8 @@ interface GithubApi {
     @GET("repos/{owner}/{repo}/commits")
     suspend fun getOwnerCommits(
         @Path("owner") owner: String,
-        @Path("repo") repo: String
-    ): Response<GetGithubCommitsResponseModel>
+        @Path("repo") repo: String,
+        @Query("page") page: Int,
+        @Query("per_page") per_page: Int
+    ): Response<List<GithubCommits>>
 }
